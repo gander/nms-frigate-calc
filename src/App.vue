@@ -86,19 +86,19 @@ watch([traitsInput, combat, exploration, industry, trade, /*support,*/ expeditio
   </div>
   <div>
     <label for="combat">Combat</label>
-    <input type="number" min="0" id="combat" v-model="combat"/>
+    <input type="number" id="combat" v-model="combat"/>
   </div>
   <div>
     <label for="exploration">Exploration</label>
-    <input type="number" min="0" id="exploration" v-model="exploration"/>
+    <input type="number" id="exploration" v-model="exploration"/>
   </div>
   <div>
     <label for="industry">Industry</label>
-    <input type="number" min="0" id="industry" v-model="industry"/>
+    <input type="number" id="industry" v-model="industry"/>
   </div>
   <div>
     <label for="trade">Trade</label>
-    <input type="number" min="0" id="trade" v-model="trade"/>
+    <input type="number" id="trade" v-model="trade"/>
   </div>
   <div>
     <label for="traits">Traits</label>
