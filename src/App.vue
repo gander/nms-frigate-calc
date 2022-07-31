@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {ref, watch} from 'vue';
+import {Ref, ref, watch} from 'vue';
 
 const levelUps = new Map([
   [1, 4],
@@ -17,12 +17,12 @@ const levelUps = new Map([
 const regex = /\+?\d+|-\d+/g;
 
 const traitsInput = ref('');
-const combat = ref(0);
-const exploration = ref(0);
-const industry = ref(0);
-const trade = ref(0);
+const combat: Ref<number | null> = ref(null);
+const exploration: Ref<number | null> = ref(null);
+const industry: Ref<number | null> = ref(null);
+const trade: Ref<number | null> = ref(null);
 const baseStat = ref(0);
-const expeditions = ref(0);
+const expeditions: Ref<number | null> = ref(null);
 
 const stats = ref(0);
 const bonuses = ref(0);
@@ -30,12 +30,12 @@ const levelUp = ref(0);
 
 const reset = () => {
   traitsInput.value = '';
-  combat.value = 0;
-  exploration.value = 0;
-  industry.value = 0;
-  trade.value = 0;
+  combat.value = null;
+  exploration.value = null;
+  industry.value = null;
+  trade.value = null;
   baseStat.value = 0;
-  expeditions.value = 0;
+  expeditions.value = null;
   stats.value = 0;
   bonuses.value = 0;
   levelUp.value = 0;
@@ -71,9 +71,9 @@ const calcExpeditions = (expeditions: number): number => {
 };
 
 watch([traitsInput, combat, exploration, industry, trade, /*support,*/ expeditions], () => {
-  stats.value = (combat.value + exploration.value + industry.value + trade.value);
+  stats.value = ((combat.value ?? 0) + (exploration.value ?? 0) + (industry.value ?? 0) + (trade.value ?? 0));
   bonuses.value = extractTraits(traitsInput.value).reduce((sum, cur) => cur + sum, 0);
-  levelUp.value = calcExpeditions(expeditions.value);
+  levelUp.value = calcExpeditions(expeditions.value ?? 0);
   baseStat.value = stats.value - bonuses.value - (6 * levelUp.value);
 });
 
