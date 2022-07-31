@@ -80,37 +80,49 @@ watch([traitsInput, combat, exploration, industry, trade, /*support,*/ expeditio
 </script>
 
 <template>
-  <div>
-    <label for="expeditions">Expeditions</label>
-    <input type="number" min="0" id="expeditions" v-model="expeditions"/>
-  </div>
-  <div>
-    <label for="combat">Combat</label>
-    <input type="number" id="combat" v-model="combat"/>
-  </div>
-  <div>
-    <label for="exploration">Exploration</label>
-    <input type="number" id="exploration" v-model="exploration"/>
-  </div>
-  <div>
-    <label for="industry">Industry</label>
-    <input type="number" id="industry" v-model="industry"/>
-  </div>
-  <div>
-    <label for="trade">Trade</label>
-    <input type="number" id="trade" v-model="trade"/>
-  </div>
-  <div>
-    <label for="traits">Traits</label>
-    <input type="text" id="traits" v-model.trim="traitsInput" inputmode="numeric" pattern="[0-9]*"/>
-  </div>
-  <div>
-    <button @click="reset">Reset</button>
-  </div>
-  <div>
-    <div><small>Stats: {{ stats }}</small></div>
-    <div><small>Bonuses: {{ bonuses }}</small></div>
-    <div><small>Level Up: {{ levelUp }}</small></div>
-    <h3>SCORE: {{ baseStat }}</h3>
-  </div>
+  <table>
+    <tr>
+      <td><label for="combat">Combat:</label></td>
+      <td><input type="number" id="combat" v-model="combat"/></td>
+    </tr>
+    <tr>
+      <td><label for="exploration">Exploration:</label></td>
+      <td><input type="number" id="exploration" v-model="exploration"/></td>
+    </tr>
+    <tr>
+      <td><label for="industry">Industrial:</label></td>
+      <td><input type="number" id="industry" v-model="industry"/></td>
+    </tr>
+    <tr>
+      <td><label for="trade">Trade:</label></td>
+      <td><input type="number" id="trade" v-model="trade"/></td>
+    </tr>
+    <tr style="background-color: silver">
+      <td><label for="expeditions">Expeditions:</label></td>
+      <td><input type="number" min="0" id="expeditions" v-model="expeditions"/></td>
+    </tr>
+    <tr style="background-color: gray">
+      <td><label for="traits">Traits</label></td>
+      <td><input type="text" id="traits" v-model.trim="traitsInput" inputmode="numeric" pattern="[0-9]*"/></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button @click="reset" style="background-color: coral">Reset</button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <h3>SCORE: {{ baseStat }}</h3>
+        <div><small>Stats: {{ stats }}</small></div>
+        <div><small>Bonuses: {{ bonuses }}</small></div>
+        <div><small>Level Up: {{ levelUp }}</small></div>
+      </td>
+    </tr>
+  </table>
 </template>
+
+<style>
+label {
+  margin: 5px;
+}
+</style>
