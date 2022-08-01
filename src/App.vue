@@ -77,15 +77,15 @@ watch([traitsInput, statsInput, expeditions], () => {
   <table>
     <tr style="background-color: gray">
       <td><label for="stats">Stats</label></td>
-      <td><input type="text" id="stats" v-model.trim="statsInput" inputmode="numeric" pattern="[0-9]*"/></td>
+      <td><input type="text" id="stats" v-model.trim="statsInput" inputmode="numeric" pattern="[0-9]*" placeholder="eg. 27 10 7"/></td>
     </tr>
     <tr style="background-color: gray">
       <td><label for="traits">Traits</label></td>
-      <td><input type="text" id="traits" v-model.trim="traitsInput" inputmode="numeric" pattern="[0-9]*"/></td>
+      <td><input type="text" id="traits" v-model.trim="traitsInput" inputmode="numeric" pattern="[0-9]*" placeholder="eg. 15 3 1 -4"/></td>
     </tr>
     <tr style="background-color: silver">
       <td><label for="expeditions">Expeditions:</label></td>
-      <td><input type="number" min="0" id="expeditions" v-model="expeditions"/></td>
+      <td><input type="number" min="0" id="expeditions" v-model="expeditions" placeholder="eg. 19"/></td>
     </tr>
     <tr>
       <td colspan="2">
