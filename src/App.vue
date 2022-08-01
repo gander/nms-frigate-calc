@@ -81,7 +81,10 @@ watch([traitsInput, statsInput, expeditions], () => {
     </tr>
     <tr style="background-color: gray">
       <td><label for="traits">Traits</label></td>
-      <td><input type="text" id="traits" v-model.trim="traitsInput" inputmode="numeric" pattern="[0-9]*" placeholder="eg. 15 3 1 -4"/></td>
+      <td>
+        <input type="text" id="traits" v-model.trim="traitsInput" inputmode="numeric" pattern="[0-9]*" placeholder="eg. 15 3 1 -4"/>
+        <div style="font-size:0.75em;">Without fuel and time modifiers</div>
+      </td>
     </tr>
     <tr style="background-color: silver">
       <td><label for="expeditions">Expeditions:</label></td>
