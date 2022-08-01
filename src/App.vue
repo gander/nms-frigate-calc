@@ -74,40 +74,40 @@ watch([traitsInput, statsInput, expeditions], () => {
 </script>
 
 <template>
-  <table>
-    <tr style="background-color: gray">
-      <td><label for="stats">Stats</label></td>
-      <td><input type="text" id="stats" v-model.trim="statsInput" inputmode="numeric" pattern="[0-9]*" placeholder="eg. 27 10 7"/></td>
-    </tr>
-    <tr style="background-color: gray">
-      <td><label for="traits">Traits</label></td>
-      <td>
-        <input type="text" id="traits" v-model.trim="traitsInput" inputmode="numeric" pattern="[0-9]*" placeholder="eg. 15 3 1 -4"/>
-        <div style="font-size:0.75em;">Without fuel and time modifiers</div>
-      </td>
-    </tr>
-    <tr style="background-color: silver">
-      <td><label for="expeditions">Expeditions:</label></td>
-      <td><input type="number" min="0" id="expeditions" v-model="expeditions" placeholder="eg. 19"/></td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <button @click="reset" style="background-color: coral">Reset</button>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <h3>SCORE: {{ baseStat }}</h3>
-        <div><small>Stats: {{ stats }}</small></div>
-        <div><small>Bonuses: {{ bonuses }}</small></div>
-        <div><small>Level Up: {{ levelUp }}</small></div>
-      </td>
-    </tr>
-  </table>
-</template>
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-sm-7 col-md-5 col-lg-4 col-xl-3">
 
-<style>
-label {
-  margin: 5px;
-}
-</style>
+        <div class="mb-3 bt-5 text-center fw-bold">
+          <h3>SCORE: <span class="badge rounded-pill bg-success m-3">{{ baseStat }}</span></h3>
+        </div>
+
+        <div class="mb-3">
+          <label for="stats" class="form-label">Stats</label>
+          <input type="text" class="form-control" id="stats" v-model.trim="statsInput" inputmode="numeric" pattern="[0-9]*" placeholder="eg. 27 10 7"/>
+        </div>
+
+        <div class="mb-3">
+          <label for="traits" class="form-label">Traits</label>
+          <input type="text" class="form-control" id="traits" v-model.trim="traitsInput" inputmode="numeric" pattern="[0-9]*" placeholder="eg. 15 3 1 -4"/>
+          <div class="form-text">Without fuel and time modifiers</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="expeditions" class="form-label">Expeditions:</label>
+          <input type="number" class="form-control" min="0" id="expeditions" v-model="expeditions" placeholder="eg. 19"/>
+        </div>
+
+        <div class="mb-3 text-center">
+          <button @click="reset" class="btn btn-warning">Reset</button>
+        </div>
+
+        <div class="mb-3 text-center">
+          <div><small>Stats: {{ stats }}</small></div>
+          <div><small>Bonuses: {{ bonuses }}</small></div>
+          <div><small>Level Up: {{ levelUp }}</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
