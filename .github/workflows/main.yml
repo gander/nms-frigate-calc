@@ -1,0 +1,13 @@
+on:
+    push:
+        tags:
+            - "v[0-9]+.[0-9]+.[0-9]+"
+    workflow_dispatch: ~
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Execute Deploy Hook
+              run: curl -X POST -s -o /dev/null ${{ secrets.DEPLOY_HOOK_URL }}
+
+
