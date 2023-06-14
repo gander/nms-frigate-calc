@@ -110,6 +110,14 @@ watch([traitsInput, statsInput, expeditions], () => {
       </div>
     </div>
     <div class="row">
+      <div class="col text-center mt-5">
+        <a href="https://github.com/gander/nms-frigate-calc/issues" target="_blank" class=" d-flex flex-column align-items-center">
+          <img src="./github.svg" alt="GitHub" width="24" height="24" class="d-inline-block align-text-top me-1"/>
+          Report Bug
+        </a>
+      </div>
+    </div>
+    <div class="row">
       <div class="col small text-muted text-center mt-5">
         v<span>__APP_VERSION__</span>
       </div>
