@@ -1,7 +1,7 @@
 {
   "name": "nms-frigate-calc",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,9 +11,6 @@
   },
   "git": {
     "commitMessage": "chore: release v${version}"
-  },
-  "github": {
-    "release": true
   },
   "dependencies": {
     "bootstrap": "^5.3.0",
