@@ -76,37 +76,52 @@ watch([traitsInput, statsInput, expeditions], () => {
 <template>
   <div class="container">
     <div class="row justify-content-center align-items-center">
+      <h1 class="text-center h2">NMS Frigate Calc</h1>
+
       <div class="col-sm-7 col-md-5 col-lg-4 col-xl-3">
+
+        <div class="alert alert-primary text-center" role="alert">
+          Provide
+          <mark>stats</mark>
+          and
+          <mark>traits</mark>
+          as positive or negative integers.
+          Any other chars will be ignored. eg: <span class="font-monospace">"1,2.3 -4"</span>
+        </div>
+
+        <div class="mt-3 input-group">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="stats" v-model.trim="statsInput" inputmode="numeric"/>
+            <label for="stats" class="form-label">Stats</label>
+          </div>
+          <span class="input-group-text" title="Stats">{{ stats }}</span>
+        </div>
+
+        <div class="mt-3 input-group">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="traits" v-model.trim="traitsInput" inputmode="numeric"/>
+            <label for="traits" class="form-label">Traits</label>
+          </div>
+          <span class="input-group-text" title="Bonuses">{{ bonuses }}</span>
+        </div>
+        <div class="form-text text-muted text-center">Without fuel and time modifiers</div>
+
+        <div class="mt-3 input-group">
+          <div class="form-floating">
+            <input type="number" class="form-control" min="0" id="expeditions" v-model="expeditions"/>
+            <label for="expeditions" class="form-label">Expeditions:</label>
+          </div>
+          <span class="input-group-text" title="Level Up">{{ levelUp }}</span>
+        </div>
 
         <div class="mb-3 bt-5 text-center fw-bold">
           <h3>SCORE: <span class="badge rounded-pill bg-success m-3">{{ baseStat }}</span></h3>
         </div>
 
-        <div class="mb-3">
-          <label for="stats" class="form-label">Stats</label>
-          <input type="text" class="form-control" id="stats" v-model.trim="statsInput" inputmode="numeric" pattern="[0-9]*" placeholder="eg. 27 10 7"/>
-        </div>
-
-        <div class="mb-3">
-          <label for="traits" class="form-label">Traits</label>
-          <input type="text" class="form-control" id="traits" v-model.trim="traitsInput" inputmode="numeric" pattern="[0-9]*" placeholder="eg. 15 3 1 -4"/>
-          <div class="form-text">Without fuel and time modifiers</div>
-        </div>
-
-        <div class="mb-3">
-          <label for="expeditions" class="form-label">Expeditions:</label>
-          <input type="number" class="form-control" min="0" id="expeditions" v-model="expeditions" placeholder="eg. 19"/>
-        </div>
-
-        <div class="mb-3 text-center">
+        <div class="mb-3 text-center d-grid">
           <button @click="reset" class="btn btn-warning">Reset</button>
         </div>
 
-        <div class="mb-3 text-center">
-          <div><small>Stats: {{ stats }}</small></div>
-          <div><small>Bonuses: {{ bonuses }}</small></div>
-          <div><small>Level Up: {{ levelUp }}</small></div>
-        </div>
       </div>
     </div>
     <div class="row">
@@ -126,3 +141,12 @@ watch([traitsInput, statsInput, expeditions], () => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.input-group-text {
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  cursor: help;
+}
+</style>
