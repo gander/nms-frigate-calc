@@ -124,10 +124,5 @@ watch([traitsInput, statsInput, expeditions], () => {
         </a>
       </div>
     </div>
-    <div class="row">
-      <div class="col small text-muted text-center mt-5">
-        v<span>__APP_VERSION__</span>
-      </div>
-    </div>
   </div>
 </template>
