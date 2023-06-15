@@ -1,9 +1,25 @@
 import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
-
-process.env.VITE_APP_VERSION = process.env.npm_package_version;
+import htmlPlugin from 'vite-plugin-html-config';
 
 // https://vitejs.dev/config/
-export default defineConfig({
-    plugins: [vue()],
+export default defineConfig(({command}) => {
+    process.env.VITE_APP_VERSION = process.env.npm_package_version;
+
+    const plugins = [vue()];
+
+    if (command === 'build') {
+        if (process.env.VITE_UMAMI_ID && process.env.VITE_UMAMI_SRC) {
+            plugins.push(htmlPlugin({
+                headScripts: [{
+                    'async': true,
+                    'crossorigin': 'anonymous',
+                    'data-website-id': process.env.VITE_UMAMI_ID,
+                    'src': process.env.VITE_UMAMI_SRC,
+                }],
+            }));
+        }
+    }
+
+    return {plugins};
 });
