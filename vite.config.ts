@@ -13,7 +13,6 @@ export default defineConfig(({command}) => {
             plugins.push(htmlPlugin({
                 headScripts: [{
                     'async': true,
-                    'crossorigin': 'anonymous',
                     'data-website-id': process.env.VITE_UMAMI_ID,
                     'src': process.env.VITE_UMAMI_SRC,
                 }],
