@@ -94,7 +94,7 @@ watch([traitsInput, statsInput, expeditions], () => {
             <input type="text" class="form-control" id="stats" v-model.trim="statsInput" inputmode="numeric"/>
             <label for="stats" class="form-label">Stats</label>
           </div>
-          <span class="input-group-text" title="Stats">{{ stats }}</span>
+          <span class="input-group-text" title="Sum of Stats points">{{ stats }}</span>
         </div>
 
         <div class="mt-3 input-group">
@@ -102,7 +102,7 @@ watch([traitsInput, statsInput, expeditions], () => {
             <input type="text" class="form-control" id="traits" v-model.trim="traitsInput" inputmode="numeric"/>
             <label for="traits" class="form-label">Traits</label>
           </div>
-          <span class="input-group-text" title="Bonuses">{{ bonuses }}</span>
+          <span class="input-group-text" title="Sum of Bonuses points">{{ bonuses }}</span>
         </div>
         <div class="form-text text-muted text-center">Without fuel and time modifiers</div>
 
@@ -111,7 +111,7 @@ watch([traitsInput, statsInput, expeditions], () => {
             <input type="number" class="form-control" min="0" id="expeditions" v-model="expeditions"/>
             <label for="expeditions" class="form-label">Expeditions:</label>
           </div>
-          <span class="input-group-text" title="Level Up">{{ levelUp }}</span>
+          <span class="input-group-text" title="Number of levels up">{{ levelUp }}</span>
         </div>
 
         <div class="mb-3 bt-5 text-center fw-bold">
