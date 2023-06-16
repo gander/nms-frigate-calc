@@ -1,101 +1,11 @@
 <script setup lang="ts">
 
-import {onMounted, reactive, Ref, ref, watch} from 'vue';
+import {useStore} from './store.ts';
+import {storeToRefs} from 'pinia';
 
-const levelUps = new Map([
-  [1, 4],
-  [2, 8],
-  [3, 15],
-  [4, 25],
-  [5, 30],
-  [6, 35],
-  [7, 40],
-  [8, 45],
-  [9, 50],
-  [10, 55],
-]);
-const regex = /\+?\d+|-\d+/g;
+const store = useStore();
 
-const traitsInput = ref('');
-const statsInput = ref('');
-const baseStat = ref(0);
-const validStat = ref(0);
-const expeditions: Ref<number | null> = ref(null);
-
-const stats = ref(0);
-const bonuses = ref(0);
-const levelUp = ref(0);
-
-const scoreClass = ref('');
-const scoreStyle = reactive({width: '10%'});
-
-const reset = () => {
-  traitsInput.value = '';
-  statsInput.value = '';
-  baseStat.value = 0;
-  validStat.value = 0;
-  expeditions.value = null;
-  stats.value = 0;
-  bonuses.value = 0;
-  levelUp.value = 0;
-  scoreClass.value = 'bg-warning';
-};
-
-onMounted(reset);
-
-const extractTraits = (str: string): number[] => {
-  let matches: number[] = [];
-
-  let m;
-  while ((m = regex.exec(str))) {
-    if (m.index === regex.lastIndex) {
-      regex.lastIndex++;
-    }
-
-    matches.push(parseInt(m[0]));
-  }
-
-  return matches.filter((value) => value !== 0).slice(0, 5);
-};
-
-const calcExpeditions = (expeditions: number): number => {
-  let result = 0;
-
-  for (let [lvl, exp] of levelUps.entries()) {
-    if (exp > expeditions) {
-      break;
-    }
-
-    result = lvl;
-  }
-
-  return result;
-};
-
-watch([traitsInput, statsInput, expeditions], () => {
-  stats.value = extractTraits(statsInput.value).reduce((sum, cur) => cur + sum, 0);
-  bonuses.value = extractTraits(traitsInput.value).reduce((sum, cur) => cur + sum, 0);
-  levelUp.value = calcExpeditions(expeditions.value ?? 0);
-  baseStat.value = stats.value - bonuses.value - (6 * levelUp.value);
-  validStat.value = Math.max(-5, Math.min(14, baseStat.value));
-}, {immediate: true});
-
-watch(validStat, (value) => {
-
-  value += 5; // for easy math
-
-  if (value < 5) {
-    scoreClass.value = 'bg-danger';
-  } else if (value < 10) {
-    scoreClass.value = 'bg-warning';
-  } else if (value < 15) {
-    scoreClass.value = 'bg-info';
-  } else {
-    scoreClass.value = 'bg-success';
-  }
-
-  scoreStyle.width = `${Math.round((value * (100 - 10)) / (14 - (-5))) + 10}%`;
-}, {immediate: true});
+const {statsInput, stats, traitsInput, bonuses, expeditions, levelUp, scoreStyle, scoreClass, baseStat, validStat} = storeToRefs(store);
 
 </script>
 
@@ -147,7 +57,7 @@ watch(validStat, (value) => {
         </div>
 
         <div class="mb-3 text-center d-grid">
-          <button @click="reset" class="btn btn-warning">Reset</button>
+          <button @click="store.$reset" class="btn btn-warning">Reset</button>
         </div>
 
       </div>
