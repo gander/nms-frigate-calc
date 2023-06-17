@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
 import htmlPlugin from 'vite-plugin-html-config';
@@ -20,5 +21,12 @@ export default defineConfig(({command}) => {
         }
     }
 
-    return {plugins};
+    return {
+        plugins,
+        test: {
+            coverage: {
+                provider: 'v8',
+            }
+        }
+    };
 });
