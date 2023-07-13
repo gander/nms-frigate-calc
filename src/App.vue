@@ -106,15 +106,6 @@ watch(validStat, (value) => {
 
       <div class="col-sm-7 col-md-5 col-lg-4 col-xl-3">
 
-        <div class="alert alert-primary text-center" role="alert">
-          Provide
-          <mark>stats</mark>
-          and
-          <mark>traits</mark>
-          as positive or negative integers.
-          Any other chars will be ignored. eg: <span class="font-monospace">"1,2.3 -4"</span>
-        </div>
-
         <div class="mt-3 input-group">
           <div class="form-floating">
             <input type="text" class="form-control" id="stats" v-model.trim="statsInput" inputmode="numeric"/>
@@ -148,6 +139,15 @@ watch(validStat, (value) => {
 
         <div class="mb-3 text-center d-grid">
           <button @click="reset" class="btn btn-warning">Reset</button>
+        </div>
+
+        <div class="alert alert-primary text-center" role="alert">
+          Provide
+          <mark>stats</mark>
+          and
+          <mark>traits</mark>
+          as positive or negative integers.
+          Any other chars will be ignored. eg: <span class="font-monospace">"1,2.3 -4"</span>
         </div>
 
       </div>
