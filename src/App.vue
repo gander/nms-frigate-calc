@@ -138,7 +138,7 @@ watch(validStat, (value) => {
         </div>
 
         <div class="mb-3 text-center d-grid">
-          <button @click="reset" class="btn btn-warning">Reset</button>
+          <button @click="reset" class="btn btn-warning" data-umami-event="reset">Reset</button>
         </div>
 
         <div class="alert alert-primary text-center" role="alert">
@@ -155,13 +155,13 @@ watch(validStat, (value) => {
     <div class="row">
       <div class="col mt-3 d-flex flex-column align-items-center">
         <div class="lead">Formula sources</div>
-        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1505175794" target="_blank">Frigate Buyer's Guide - How to Pick the Best Ships (and avoid "Lemons")</a>
-        <a href="https://www.reddit.com/r/NoMansSkyTheGame/comments/knjokc/a_guide_to_evaluating_frigate_stats/" target="_blank">A Guide to Evaluating Frigate Stats</a>
+        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1505175794" target="_blank" data-umami-event="steam">Frigate Buyer's Guide - How to Pick the Best Ships (and avoid "Lemons")</a>
+        <a href="https://www.reddit.com/r/NoMansSkyTheGame/comments/knjokc/a_guide_to_evaluating_frigate_stats/" target="_blank" data-umami-event="reddit">A Guide to Evaluating Frigate Stats</a>
       </div>
     </div>
     <div class="row">
       <div class="col text-center mt-5">
-        <a href="https://github.com/gander/nms-frigate-calc/issues" target="_blank" class=" d-flex flex-column align-items-center">
+        <a href="https://github.com/gander/nms-frigate-calc/issues" target="_blank" class=" d-flex flex-column align-items-center" data-umami-event="github">
           <img src="../assets/github.svg" alt="GitHub" width="24" height="24" class="d-inline-block align-text-top me-1"/>
           Report Bug
         </a>
