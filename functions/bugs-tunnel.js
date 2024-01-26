@@ -1,7 +1,5 @@
 export async function onRequestPost({request}) {
-    let {readable, writable} = new TransformStream();
-    await request.body.pipeTo(writable);
-    const [header, body] = readable.tee();
+    const [header, body] = request.body.tee();
     let decoder = new TextDecoder();
     let chunk = '';
     const headerReader = header.getReader();
