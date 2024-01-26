@@ -14,7 +14,6 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
         integrations: [Sentry.replayIntegration()],
         replaysSessionSampleRate: 1.0,
         replaysOnErrorSampleRate: 1.0,
-        tracePropagationTargets: ['localhost', 'sentry.gander.pl'],
     });
 }
 
