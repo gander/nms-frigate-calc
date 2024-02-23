@@ -16,8 +16,8 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
             Sentry.feedbackIntegration({
                 showName: false,
                 showEmail: false,
-                buttonLabel: 'Send',
-                formTitle: 'Report a Bug | Request a Feature',
+                buttonLabel: 'Send Feedback',
+                formTitle: 'Send Feedback',
                 // @ts-ignore
                 onFormOpen: () => umami?.track('Feedback Form Open'),
                 // @ts-ignore
