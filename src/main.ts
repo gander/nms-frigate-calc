@@ -18,6 +18,7 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
                 showEmail: false,
                 buttonLabel: 'Send Feedback',
                 formTitle: 'Send Feedback',
+                submitButtonLabel: 'Send',
                 // @ts-ignore
                 onFormOpen: () => umami?.track('Feedback Form Open'),
                 // @ts-ignore
