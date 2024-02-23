@@ -11,7 +11,7 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
         tunnel: '/bugs-tunnel',
         dsn: import.meta.env.VITE_SENTRY_DSN,
         environment: import.meta.env.MODE,
-        integrations: [Sentry.replayIntegration()],
+        integrations: [Sentry.replayIntegration(), Sentry.feedbackIntegration()],
         replaysSessionSampleRate: 1.0,
         replaysOnErrorSampleRate: 1.0,
     });
