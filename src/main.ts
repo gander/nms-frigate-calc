@@ -21,11 +21,9 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
                 submitButtonLabel: 'Send',
                 successMessageText: 'Thank you for your feedback!',
                 // @ts-ignore
-                onFormOpen: () => umami?.track('Feedback Form Open'),
+                onFormOpen: () => umami?.track('Feedback Open'),
                 // @ts-ignore
-                onFormClose: () => umami?.track('Feedback Form Close'),
-                // @ts-ignore
-                onSubmitSuccess: () => umami?.track('Feedback Success'),
+                onSubmitSuccess: () => umami?.track('Feedback Send'),
                 // @ts-ignore
                 onSubmitError: () => umami?.track('Feedback Error'),
             }),
