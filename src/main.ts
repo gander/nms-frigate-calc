@@ -14,8 +14,6 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
         integrations: [
             Sentry.replayIntegration(),
             Sentry.feedbackIntegration({
-                showName: false,
-                showEmail: false,
                 buttonLabel: 'Send Feedback',
                 formTitle: 'Send Feedback',
                 submitButtonLabel: 'Send',
