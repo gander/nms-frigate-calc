@@ -11,9 +11,32 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
         tunnel: '/bugs-tunnel',
         dsn: import.meta.env.VITE_SENTRY_DSN,
         environment: import.meta.env.MODE,
-        integrations: [Sentry.replayIntegration(), Sentry.feedbackIntegration()],
+        integrations: [
+            Sentry.replayIntegration(),
+            Sentry.feedbackIntegration({
+                showName: false,
+                showEmail: false,
+                buttonLabel: 'Send',
+                formTitle: 'Report a Bug | Request a Feature',
+                // @ts-ignore
+                onFormOpen: () => umami?.track('Feedback Form Open'),
+                // @ts-ignore
+                onFormClose: () => umami?.track('Feedback Form Close'),
+                // @ts-ignore
+                onSubmitSuccess: () => umami?.track('Feedback Success'),
+                // @ts-ignore
+                onSubmitError: () => umami?.track('Feedback Error'),
+            }),
+        ],
         replaysSessionSampleRate: 1.0,
         replaysOnErrorSampleRate: 1.0,
+        beforeSend(event) {
+            if (event.exception && event.event_id) {
+                Sentry.showReportDialog({ eventId: event.event_id });
+            }
+            return event;
+        },
+
     });
 }
 
