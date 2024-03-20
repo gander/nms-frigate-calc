@@ -10,9 +10,18 @@ export default defineConfig(({command}) => {
     const headScripts: ScriptTag[] = [];
 
     if (command === 'build') {
+        if (process.env.VITE_TIANJI_ID && process.env.VITE_TIANJI_SRC) {
+            headScripts.push({
+                'async': true,
+                'defer': true,
+                'data-website-id': process.env.VITE_TIANJI_ID,
+                'src': process.env.VITE_TIANJI_SRC,
+            });
+        }
         if (process.env.VITE_UMAMI_ID && process.env.VITE_UMAMI_SRC) {
             headScripts.push({
                 'async': true,
+                'defer': true,
                 'data-website-id': process.env.VITE_UMAMI_ID,
                 'src': process.env.VITE_UMAMI_SRC,
             });
