@@ -72,6 +72,8 @@ const calcExpeditions = (expeditions: number): number => {
   return result;
 };
 
+const telemetryImg = import.meta.env.VITE_TELEMETRY_IMG;
+
 watch([traitsInput, statsInput, expeditions], () => {
   stats.value = extractTraits(statsInput.value).reduce((sum, cur) => cur + sum, 0);
   bonuses.value = extractTraits(traitsInput.value).reduce((sum, cur) => cur + sum, 0);
@@ -152,6 +154,11 @@ watch(validStat, (value) => {
 
       </div>
     </div>
+    <div class="row" v-if="telemetryImg">
+      <div class="telemetry">
+        <img :src="telemetryImg" alt="">
+      </div>
+    </div>
     <div class="row">
       <div class="col mt-3 d-flex flex-column align-items-center">
         <div class="lead">Formula sources</div>
@@ -176,5 +183,8 @@ watch(validStat, (value) => {
   display: flex;
   justify-content: center;
   cursor: help;
+}
+.telemetry {
+  text-align: center;
 }
 </style>

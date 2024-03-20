@@ -7,6 +7,7 @@ interface ImportMetaEnv {
     readonly VITE_TIANJI_ID: string
     readonly VITE_TIANJI_SRC: string
     readonly VITE_SENTRY_DSN: string;
+    readonly VITE_TELEMETRY_IMG: string;
 }
 
 interface ImportMeta {
