@@ -11,7 +11,7 @@
   },
   "release-it": {
     "git": {
-      "requireBranch": "master"
+      "requireBranch": "2.x"
     },
     "npm": {
       "publish": false,
