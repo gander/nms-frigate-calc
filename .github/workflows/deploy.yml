@@ -8,6 +8,7 @@ on:
 jobs:
     release:
         runs-on: ubuntu-latest
+        environment: 3.x
         steps:
             - name: Execute Deploy Hook
               shell: bash
