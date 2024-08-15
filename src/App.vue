@@ -104,8 +104,6 @@ watch(validStat, (value) => {
 <template>
   <div class="container">
     <div class="row justify-content-center align-items-center">
-      <h1 class="text-center h2">NMS Frigate Calc</h1>
-
       <div class="col-sm-7 col-md-5 col-lg-4 col-xl-3">
 
         <div class="mt-3 input-group">
@@ -152,26 +150,19 @@ watch(validStat, (value) => {
           Any other chars will be ignored. eg: <span class="font-monospace">"1,2.3 -4"</span>
         </div>
 
-      </div>
-    </div>
-    <div class="row" v-if="telemetryImg">
-      <div class="telemetry">
-        <img :src="telemetryImg" alt="">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col mt-3 d-flex flex-column align-items-center">
-        <div class="lead">Formula sources</div>
-        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1505175794" target="_blank" data-umami-event="steam" data-tianji-event="steam">Frigate Buyer's Guide - How to Pick the Best Ships (and avoid "Lemons")</a>
-        <a href="https://www.reddit.com/r/NoMansSkyTheGame/comments/knjokc/a_guide_to_evaluating_frigate_stats/" target="_blank" data-umami-event="reddit" data-tianji-event="reddit">A Guide to Evaluating Frigate Stats</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col text-center mt-5">
-        <a href="https://github.com/gander/nms-frigate-calc/issues" target="_blank" class=" d-flex flex-column align-items-center" data-umami-event="github" data-tianji-event="github">
-          <img src="../assets/github.svg" alt="GitHub" width="24" height="24" class="d-inline-block align-text-top me-1"/>
-          Report Bug
-        </a>
+        <div v-if="telemetryImg">
+          <div class="telemetry">
+            <img :src="telemetryImg" alt="">
+          </div>
+        </div>
+
+        <div class="col mt-3 d-flex flex-column align-items-start">
+          <div class="lead">Formula sources:</div>
+          <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1505175794" target="_blank" data-umami-event="steam" data-tianji-event="steam">Frigate Buyer's Guide</a>
+          <a href="https://www.reddit.com/r/NoMansSkyTheGame/comments/knjokc/a_guide_to_evaluating_frigate_stats/" target="_blank" data-umami-event="reddit" data-tianji-event="reddit">A Guide to Evaluating Frigate Stats</a>
+          <a href="https://github.com/gander/nms-frigate-calc/issues" target="_blank" class="d-flex mt-4 flex-column align-items-center fw-bold" data-umami-event="github" data-tianji-event="github">Report Bug or Request Feature</a>
+        </div>
+
       </div>
     </div>
   </div>
@@ -184,6 +175,7 @@ watch(validStat, (value) => {
   justify-content: center;
   cursor: help;
 }
+
 .telemetry {
   text-align: center;
 }

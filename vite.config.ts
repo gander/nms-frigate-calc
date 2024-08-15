@@ -31,7 +31,7 @@ export default defineConfig(({command}) => {
     const pwaOptions = {
         includeAssets: ['favicon-32x32.png', 'favicon-16x16.png', 'apple-touch-icon.png', 'robots.txt'],
         manifest: {
-            id: 'dev.gander.nms-frigate-calc',
+            id: 'tools.gander.nms',
             name: 'No Man\'s Sky Frigate Calculator',
             short_name: 'NMS Frigate Calc',
             description: 'A calculator to check the profitability of buying a frigate ship in No Man\'s Sky game.',
