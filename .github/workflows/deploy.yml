@@ -8,8 +8,13 @@ on:
 jobs:
     release:
         runs-on: ubuntu-latest
+        environment: 2.x
         steps:
             - name: Execute Deploy Hook
-              run: curl -X POST -s -o /dev/null ${{ secrets.DEPLOY_HOOK_URL }}
+              shell: bash
+              env:
+                  DEPLOY_HOOK_URL: ${{ secrets.DEPLOY_HOOK_URL }}
+              run: |
+                  curl -X POST -s -o /dev/null "$DEPLOY_HOOK_URL"
 
 
