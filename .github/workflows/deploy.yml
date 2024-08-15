@@ -10,6 +10,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Execute Deploy Hook
-              run: curl -X POST -s -o /dev/null ${{ secrets.DEPLOY_HOOK_URL }}
+              shell: bash
+              env:
+                  DEPLOY_HOOK_URL: ${{ secrets.DEPLOY_HOOK_URL }}
+              run: |
+                curl -X POST -s -o /dev/null "$DEPLOY_HOOK_URL"
 
 
