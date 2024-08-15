@@ -159,6 +159,11 @@ watch(validStat, (value) => {
         <img :src="telemetryImg" alt="">
       </div>
     </div>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-sm-7 col-md-5 col-lg-4 col-xl-3 small text-center">
+        A newer version of this calculator is under development at <a href="https://nms.gander.tools/" target="_blank">nms.gander.tools</a>.
+      </div>
+    </div>
     <div class="row">
       <div class="col mt-3 d-flex flex-column align-items-center">
         <div class="lead">Formula sources</div>
