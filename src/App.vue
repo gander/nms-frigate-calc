@@ -73,6 +73,7 @@ const calcExpeditions = (expeditions: number): number => {
 };
 
 const telemetryImg = import.meta.env.VITE_TELEMETRY_IMG;
+const discordInviteLink = import.meta.env.VITE_DISCORD_INVITE;
 
 watch([traitsInput, statsInput, expeditions], () => {
   stats.value = extractTraits(statsInput.value).reduce((sum, cur) => cur + sum, 0);
@@ -155,13 +156,19 @@ watch(validStat, (value) => {
       </div>
     </div>
     <div class="row" v-if="telemetryImg">
-      <div class="telemetry">
+      <div class="telemetry mb-3">
         <img :src="telemetryImg" alt="">
       </div>
     </div>
     <div class="row justify-content-center align-items-center">
       <div class="col-sm-7 col-md-5 col-lg-4 col-xl-3 small text-center">
-        A newer version of this calculator is under development at <a href="https://nms.gander.tools/" target="_blank">nms.gander.tools</a>.
+        A newer version of this calculator is under development at <a href="https://nms.gander.tools/" target="_blank" class="fw-bold ">nms.gander.tools</a>.
+      </div>
+    </div>
+    <div class="row" v-if="discordInviteLink">
+      <div class="discord mt-3">
+        <a :href="discordInviteLink" target="_blank"><img alt="Discord" src="https://img.shields.io/discord/1169297756356100261?style=plastic&logo=discord&label=discord">
+        </a>
       </div>
     </div>
     <div class="row">
@@ -189,7 +196,7 @@ watch(validStat, (value) => {
   justify-content: center;
   cursor: help;
 }
-.telemetry {
+.telemetry,.discord {
   text-align: center;
 }
 </style>
