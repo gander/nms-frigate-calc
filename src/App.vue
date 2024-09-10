@@ -73,6 +73,7 @@ const calcExpeditions = (expeditions: number): number => {
 };
 
 const telemetryImg = import.meta.env.VITE_TELEMETRY_IMG;
+const discordInviteLink = import.meta.env.VITE_DISCORD_INVITE;
 
 watch([traitsInput, statsInput, expeditions], () => {
   stats.value = extractTraits(statsInput.value).reduce((sum, cur) => cur + sum, 0);
@@ -150,17 +151,24 @@ watch(validStat, (value) => {
           Any other chars will be ignored. eg: <span class="font-monospace">"1,2.3 -4"</span>
         </div>
 
-        <div v-if="telemetryImg">
-          <div class="telemetry">
-            <img :src="telemetryImg" alt="">
-          </div>
-        </div>
-
         <div class="col mt-3 d-flex flex-column align-items-start">
           <div class="lead">Formula sources:</div>
           <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1505175794" target="_blank" data-umami-event="steam" data-tianji-event="steam">Frigate Buyer's Guide</a>
           <a href="https://www.reddit.com/r/NoMansSkyTheGame/comments/knjokc/a_guide_to_evaluating_frigate_stats/" target="_blank" data-umami-event="reddit" data-tianji-event="reddit">A Guide to Evaluating Frigate Stats</a>
           <a href="https://github.com/gander/nms-frigate-calc/issues" target="_blank" class="d-flex mt-4 flex-column align-items-center fw-bold" data-umami-event="github" data-tianji-event="github">Report Bug or Request Feature</a>
+        </div>
+
+        <div class="row my-3" v-if="discordInviteLink">
+          <div class="discord">
+            <a :href="discordInviteLink" target="_blank"><img alt="Discord" src="https://img.shields.io/discord/1169297756356100261?style=plastic&logo=discord&label=discord">
+            </a>
+          </div>
+        </div>
+
+        <div class="row my-3" v-if="telemetryImg">
+          <div class="telemetry">
+            <img :src="telemetryImg" alt="">
+          </div>
         </div>
 
       </div>
@@ -176,7 +184,7 @@ watch(validStat, (value) => {
   cursor: help;
 }
 
-.telemetry {
+.telemetry, .discord {
   text-align: center;
 }
 </style>
