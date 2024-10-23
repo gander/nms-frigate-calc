@@ -4,9 +4,10 @@
   "version": "3.0.0-1",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview",
+    "dotenvx": "dotenvx",
+    "dev": "dotenvx run -- vite",
+    "build": "dotenvx run -- vue-tsc && dotenvx run -- vite build",
+    "preview": "dotenvx run -- vite preview",
     "release": "release-it --only-version"
   },
   "release-it": {
@@ -19,6 +20,7 @@
     }
   },
   "dependencies": {
+    "@dotenvx/dotenvx": "^1.20.0",
     "@sentry/vue": "^7.119.0",
     "bootstrap": "^5.3.3",
     "caniuse-lite": "^1.0.30001651",
