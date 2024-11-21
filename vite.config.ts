@@ -1,7 +1,6 @@
 import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
 import HtmlPlugin, {ScriptTag} from 'vite-plugin-html-config';
-import {VitePWA} from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
 export default defineConfig(({command}) => {
@@ -68,7 +67,6 @@ export default defineConfig(({command}) => {
         plugins: [
             vue(),
             HtmlPlugin({headScripts}),
-            VitePWA(pwaOptions),
         ],
     };
 });
