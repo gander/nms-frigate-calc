@@ -2,6 +2,15 @@ import {createApp} from 'vue';
 import 'bootstrap/scss/bootstrap.scss';
 import App from './App.vue';
 import * as Sentry from '@sentry/vue';
+import { H } from 'highlight.run';
+
+H.init('ng2zo5pg', {
+    environment: 'production',
+    networkRecording: {
+        enabled: true,
+        recordHeadersAndBody: true,
+    },
+});
 
 const app = createApp(App);
 
