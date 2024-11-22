@@ -20,7 +20,10 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
         dsn: import.meta.env.VITE_SENTRY_DSN,
         environment: import.meta.env.MODE,
         integrations: [
-            Sentry.replayIntegration(),
+            Sentry.replayIntegration({
+                maskAllText: false,
+                blockAllMedia: false,
+            }),
             Sentry.feedbackIntegration({
                 buttonLabel: 'Send Feedback',
                 formTitle: 'Send Feedback',
