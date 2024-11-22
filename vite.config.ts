@@ -25,44 +25,6 @@ export default defineConfig(({command}) => {
         }
     }
 
-    const pwaOptions = {
-        includeAssets: ['favicon-32x32.png', 'favicon-16x16.png', 'apple-touch-icon.png', 'robots.txt'],
-        manifest: {
-            id: 'tools.gander.nms',
-            name: 'No Man\'s Sky Frigate Calculator',
-            short_name: 'NMS Frigate Calc',
-            description: 'A calculator to check the profitability of buying a frigate ship in No Man\'s Sky game.',
-            theme_color: '#ffffff',
-            icons: [
-                {
-                    src: 'android-chrome-192x192.png',
-                    sizes: '192x192',
-                    type: 'image/png',
-                },
-                {
-                    src: 'android-chrome-512x512.png',
-                    sizes: '512x512',
-                    type: 'image/png',
-                },
-                {
-                    src: 'android-chrome-512x512-maskable.png',
-                    sizes: '512x512',
-                    type: 'image/png',
-                    purpose: 'any',
-                },
-                {
-                    src: 'android-chrome-512x512-maskable.png',
-                    sizes: '512x512',
-                    type: 'image/png',
-                    purpose: 'maskable',
-                },
-            ],
-        },
-        devOptions: {
-            enabled: true,
-        },
-    };
-
     return {
         plugins: [
             vue(),
