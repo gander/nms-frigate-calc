@@ -26,12 +26,6 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
                 formTitle: 'Send Feedback',
                 submitButtonLabel: 'Send',
                 successMessageText: 'Thank you for your feedback!',
-                // @ts-ignore
-                onFormOpen: () => umami?.track('Feedback Open'),
-                // @ts-ignore
-                onSubmitSuccess: () => umami?.track('Feedback Send'),
-                // @ts-ignore
-                onSubmitError: () => umami?.track('Feedback Error'),
             }),
         ],
         replaysSessionSampleRate: 1.0,
