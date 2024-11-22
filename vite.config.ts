@@ -28,7 +28,7 @@ export default defineConfig(({command}) => {
 
     const metas: IHTMLTag[] = [{
         'http-equiv': 'Content-Security-Policy',
-        'content': `default-src 'self'; img-src * data: blob:; media-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://sentry.gander.tools/ https://browser.sentry-cdn.com/ https://medama.gander.tools/; style-src 'self' 'unsafe-inline'; frame-src 'self'; connect-src 'self' blob: https://sentry.gander.tools/api/ https://pub.highlight.io/ https://otel.highlight.io/v1/traces https://medama.gander.tools/api/; font-src 'self'; worker-src 'self' blob:`
+        'content': `default-src 'self'; img-src * data: blob:; media-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://sentry.gander.tools/ https://browser.sentry-cdn.com/ https://medama.gander.tools/; style-src 'self' 'unsafe-inline'; frame-src 'self'; connect-src 'self' blob: https://sentry.gander.tools/api/ https://medama.gander.tools/api/; font-src 'self'; worker-src 'self' blob:`
     }];
 
     return {
