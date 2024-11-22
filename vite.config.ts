@@ -5,6 +5,7 @@ import HtmlPlugin, {IHTMLTag, ScriptTag} from 'vite-plugin-html-config';
 // https://vitejs.dev/config/
 export default defineConfig(({command}) => {
     process.env.VITE_APP_VERSION = process.env.npm_package_version;
+    process.env.VITE_COMMIT_SHA = process.env.CF_PAGES_COMMIT_SHA;
 
     const headScripts: ScriptTag[] = [];
 

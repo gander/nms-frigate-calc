@@ -2,7 +2,7 @@ import {createApp} from 'vue';
 import 'bootstrap/scss/bootstrap.scss';
 import App from './App.vue';
 import * as Sentry from '@sentry/vue';
-import { H } from 'highlight.run';
+import {H} from 'highlight.run';
 
 H.init('ng2zo5pg', {
     environment: 'production',
@@ -36,7 +36,8 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
             }
             return event;
         },
-
+        release: import.meta.env.VITE_APP_VERSION,
+        dist: import.meta.env.VITE_COMMIT_SHA,
     });
 }
 
