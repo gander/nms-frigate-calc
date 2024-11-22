@@ -35,7 +35,7 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
         replaysOnErrorSampleRate: 1.0,
         beforeSend(event) {
             if (event.exception && event.event_id) {
-                Sentry.showReportDialog({ eventId: event.event_id });
+                Sentry.showReportDialog({eventId: event.event_id});
             }
             return event;
         },
