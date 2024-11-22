@@ -22,6 +22,7 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
         integrations: [
             Sentry.replayIntegration({
                 maskAllText: false,
+                maskAllInputs: false,
                 blockAllMedia: false,
             }),
             Sentry.feedbackIntegration({
