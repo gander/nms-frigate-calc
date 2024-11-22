@@ -1,6 +1,6 @@
 import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
-import HtmlPlugin, {ScriptTag} from 'vite-plugin-html-config';
+import HtmlPlugin, {IHTMLTag, ScriptTag} from 'vite-plugin-html-config';
 
 // https://vitejs.dev/config/
 export default defineConfig(({command}) => {
@@ -25,10 +25,15 @@ export default defineConfig(({command}) => {
         }
     }
 
+    const metas: IHTMLTag[] = [{
+        'http-equiv': 'Content-Security-Policy',
+        'content': `default-src 'self'; img-src * data: blob:; media-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'  https://sentry.gander.tools/ https://browser.sentry-cdn.com/; style-src 'self' 'unsafe-inline'; frame-src 'self'; connect-src 'self' blob: https://sentry.gander.tools/api/ https://pub.highlight.io/ https://otel.highlight.io/v1/traces; font-src 'self'; worker-src 'self' blob:`
+    }];
+
     return {
         plugins: [
             vue(),
-            HtmlPlugin({headScripts}),
+            HtmlPlugin({headScripts, metas}),
         ],
     };
 });
