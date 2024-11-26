@@ -27,6 +27,7 @@ export default defineConfig(({command}) => {
     }
 
     const pwaOptions = {
+        selfDestroying: true,
         includeAssets: ['favicon-32x32.png', 'favicon-16x16.png', 'apple-touch-icon.png', 'robots.txt'],
         manifest: {
             id: 'dev.gander.nms-frigate-calc',
