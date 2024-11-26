@@ -19,12 +19,6 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
         ],
         replaysSessionSampleRate: 1.0,
         replaysOnErrorSampleRate: 1.0,
-        beforeSend(event) {
-            if (event.exception && event.event_id) {
-                Sentry.showReportDialog({eventId: event.event_id});
-            }
-            return event;
-        },
         release: import.meta.env.VITE_APP_VERSION,
         dist: import.meta.env.VITE_COMMIT_SHA,
     });
