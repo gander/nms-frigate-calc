@@ -1,6 +1,7 @@
 import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
 import HtmlPlugin, {IHTMLTag, ScriptTag} from 'vite-plugin-html-config';
+import {VitePWA} from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
 export default defineConfig(({command}) => {
@@ -31,10 +32,51 @@ export default defineConfig(({command}) => {
         'content': `default-src 'self'; img-src * data: blob:; media-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://sentry.gander.tools/ https://browser.sentry-cdn.com/ https://medama.gander.tools/; style-src 'self' 'unsafe-inline'; frame-src 'self'; connect-src 'self' blob: https://sentry.gander.tools/api/ https://medama.gander.tools/api/; font-src 'self'; worker-src 'self' blob:`
     }];
 
+
+    const pwaOptions = {
+        selfDestroying: true,
+        includeAssets: ['favicon-32x32.png', 'favicon-16x16.png', 'apple-touch-icon.png', 'robots.txt'],
+        manifest: {
+            id: 'tools.gander.nms',
+            name: 'No Man\'s Sky Frigate Calculator',
+            short_name: 'NMS Frigate Calc',
+            description: 'A calculator to check the profitability of buying a frigate ship in No Man\'s Sky game.',
+            theme_color: '#ffffff',
+            icons: [
+                {
+                    src: 'android-chrome-192x192.png',
+                    sizes: '192x192',
+                    type: 'image/png',
+                },
+                {
+                    src: 'android-chrome-512x512.png',
+                    sizes: '512x512',
+                    type: 'image/png',
+                },
+                {
+                    src: 'android-chrome-512x512-maskable.png',
+                    sizes: '512x512',
+                    type: 'image/png',
+                    purpose: 'any',
+                },
+                {
+                    src: 'android-chrome-512x512-maskable.png',
+                    sizes: '512x512',
+                    type: 'image/png',
+                    purpose: 'maskable',
+                },
+            ],
+        },
+        devOptions: {
+            enabled: true,
+        },
+    };
+
     return {
         plugins: [
             vue(),
             HtmlPlugin({headScripts, metas}),
+            VitePWA(pwaOptions),
         ],
     };
 });
