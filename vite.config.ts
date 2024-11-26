@@ -73,6 +73,9 @@ export default defineConfig(({command}) => {
     };
 
     return {
+        html: {
+            cspNonce: '{{CSP-NONCE}}',
+        },
         plugins: [
             vue(),
             HtmlPlugin({headScripts, metas}),
