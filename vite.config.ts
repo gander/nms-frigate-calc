@@ -1,6 +1,6 @@
 import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
-import HtmlPlugin, {IHTMLTag, ScriptTag} from 'vite-plugin-html-config';
+import HtmlPlugin, {ScriptTag} from 'vite-plugin-html-config';
 import {VitePWA} from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
@@ -26,12 +26,6 @@ export default defineConfig(({command}) => {
             });
         }
     }
-
-    const metas: IHTMLTag[] = [{
-        'http-equiv': 'Content-Security-Policy',
-        'content': `default-src 'self'; img-src * data: blob:; media-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://sentry.gander.tools/ https://browser.sentry-cdn.com/ https://medama.gander.tools/; style-src 'self' 'unsafe-inline'; frame-src 'self'; connect-src 'self' blob: https://sentry.gander.tools/api/ https://medama.gander.tools/api/; font-src 'self'; worker-src 'self' blob:`
-    }];
-
 
     const pwaOptions = {
         selfDestroying: true,
@@ -78,7 +72,7 @@ export default defineConfig(({command}) => {
         },
         plugins: [
             vue(),
-            HtmlPlugin({headScripts, metas}),
+            HtmlPlugin({headScripts}),
             VitePWA(pwaOptions),
         ],
     };
