@@ -38,9 +38,9 @@ export default defineConfig(({command}) => {
         includeAssets: ['favicon-32x32.png', 'favicon-16x16.png', 'apple-touch-icon.png', 'robots.txt'],
         manifest: {
             id: 'tools.gander.nms',
-            name: 'No Man\'s Sky Frigate Calculator',
-            short_name: 'NMS Frigate Calc',
-            description: 'A calculator to check the profitability of buying a frigate ship in No Man\'s Sky game.',
+            name: 'No Man\'s Sky Gander Tools',
+            short_name: 'NMS Gander Tools',
+            description: 'A tools with calculator to check the profitability of buying a frigate ship in No Man\'s Sky game.',
             theme_color: '#ffffff',
             icons: [
                 {
