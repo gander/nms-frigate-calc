@@ -16,12 +16,6 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
                 maskAllInputs: false,
                 blockAllMedia: false,
             }),
-            Sentry.feedbackIntegration({
-                buttonLabel: 'Send Feedback',
-                formTitle: 'Send Feedback',
-                submitButtonLabel: 'Send',
-                successMessageText: 'Thank you for your feedback!',
-            }),
         ],
         replaysSessionSampleRate: 1.0,
         replaysOnErrorSampleRate: 1.0,
