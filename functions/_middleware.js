@@ -13,7 +13,7 @@ async function handleNonceResponse(response) {
 
     let newHeaders = new Headers(response.headers);
     newHeaders.set('Reporting-Endpoints', 'csp-endpoint="https://csp.gander.tools/"')
-    newHeaders.set('Content-Security-Policy-Report-Only', `default-src 'self'; script-src 'self' 'unsafe-inline' 'nonce-${nonce}' 'strict-dynamic'; object-src 'none'; base-uri 'none'; connect-src 'self' medama.gander.tools sentry.gander.tools; style-src 'self' 'nonce-${nonce}'; require-trusted-types-for 'script'; report-to csp-endpoint; report-uri https://csp.gander.tools/`);
+    newHeaders.set('Content-Security-Policy-Report-Only', `default-src 'self'; script-src 'self' 'unsafe-inline' 'nonce-${nonce}' 'strict-dynamic'; object-src 'none'; base-uri 'none'; connect-src 'self' medama.gander.tools sentry.gander.tools; style-src 'self' 'unsafe-inline' 'nonce-${nonce}'; require-trusted-types-for 'script'; report-to csp-endpoint; report-uri https://csp.gander.tools/`);
 
     let body = await response.text();
     body = body.replace(/{{CSP-NONCE}}/g, nonce);
