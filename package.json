@@ -12,7 +12,7 @@
   },
   "release-it": {
     "git": {
-      "requireBranch": "master"
+      "requireBranch": "3.x"
     },
     "npm": {
       "publish": false,
