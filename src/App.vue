@@ -147,14 +147,6 @@ watch(validStat, (value) => {
           as positive or negative integers.
           Any other chars will be ignored. eg: <span class="font-monospace">"1,2.3 -4"</span>
         </div>
-
-        <div class="col my-3 d-flex flex-column align-items-start">
-          <div class="lead">Formula sources:</div>
-          <a href="https://nomanssky.fandom.com/wiki/Frigate" target="_blank">No Man's Sky Wiki</a>
-          <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1505175794" target="_blank">Frigate Buyer's Guide</a>
-          <a href="https://www.reddit.com/r/NoMansSkyTheGame/comments/knjokc/a_guide_to_evaluating_frigate_stats/" target="_blank">A Guide to Evaluating Frigate Stats</a>
-        </div>
-
       </div>
     </div>
   </div>
